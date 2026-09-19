@@ -85,6 +85,22 @@
     .num { font-size: 4.6rem; line-height: 1; opacity: .18; font-weight: 900; letter-spacing: -.08em; }
     .experience h3 { margin: 20px 0 8px; font-size: 1.45rem; }
     .experience p { margin: 0; color: rgba(255,255,255,.82); }
+    .stay-card { display: grid; grid-template-columns: 1.08fr .92fr; background: #fff; border-radius: 32px; overflow: hidden; box-shadow: var(--shadow); }
+    .stay-visual { position: relative; min-height: 520px; }
+    .stay-visual > img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .stay-badge { position: absolute; left: 22px; top: 22px; padding: 8px 12px; border-radius: 999px; background: rgba(5,34,47,.72); color: #fff; font-weight: 800; backdrop-filter: blur(10px); }
+    .stay-copy { padding: 40px; display: flex; flex-direction: column; justify-content: center; }
+    .stay-copy h3 { margin: 8px 0 12px; font-size: clamp(2rem, 4vw, 3.4rem); line-height: 1.04; letter-spacing: -.05em; }
+    .stay-meta { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 22px 0; }
+    .stay-meta div { padding: 13px 14px; border-radius: 16px; background: #eef6f5; }
+    .stay-meta strong { display: block; color: var(--ocean); }
+    .gallery { display: grid; grid-template-columns: 1.25fr .75fr .75fr; gap: 12px; margin-top: 16px; }
+    .gallery figure { margin: 0; position: relative; min-height: 210px; overflow: hidden; border-radius: 20px; background: #dfe9e8; }
+    .gallery img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .45s ease; }
+    .gallery figure:hover img { transform: scale(1.025); }
+    .gallery figcaption { position: absolute; left: 12px; bottom: 10px; padding: 5px 9px; border-radius: 999px; color: #fff; background: rgba(5,34,47,.72); font-size: .78rem; font-weight: 750; backdrop-filter: blur(8px); }
+    .source-note { margin: 12px 2px 0; color: var(--muted); font-size: .82rem; }
+    .source-note a { color: var(--ocean); font-weight: 750; }
     .timeline-wrap { background: var(--navy); color: #fff; }
     .timeline-wrap .kicker { color: #7de0dd; }
     .timeline-wrap .lede { color: rgba(255,255,255,.68); }
@@ -94,6 +110,8 @@
     .day-title strong { display: block; font-size: 2.6rem; letter-spacing: -.06em; }
     .day-title span { color: #7de0dd; font-weight: 700; }
     .stops { padding: 22px 28px; }
+    .day-cover { width: 100%; height: 230px; object-fit: cover; display: block; border-radius: 19px; margin: 4px 0 14px; }
+    .day-cover-note { margin: -2px 0 9px; color: rgba(255,255,255,.52); font-size: .78rem; }
     .stop { display: grid; grid-template-columns: 112px 1fr; gap: 18px; padding: 14px 0; border-bottom: 1px solid rgba(255,255,255,.1); }
     .stop:last-child { border-bottom: 0; }
     .time { color: #ffc06a; font-weight: 800; }
@@ -111,6 +129,19 @@
     .trip-side h4 { margin: 0 0 14px; font-size: 1.1rem; }
     .trip-side ul { margin: 0; padding-left: 20px; color: #3f5d67; }
     .trip-side li + li { margin-top: 9px; }
+    .boarding-card { display: grid; grid-template-columns: 1.04fr .96fr; overflow: hidden; background: #fff; border-radius: 30px; box-shadow: var(--shadow); }
+    .boarding-photo { min-height: 500px; overflow: hidden; background: #dce9e8; }
+    .boarding-photo img { width: 100%; height: 100%; object-fit: cover; object-position: center 32%; display: block; }
+    .boarding-copy { padding: 42px; display: flex; flex-direction: column; justify-content: center; }
+    .boarding-copy h3 { margin: 8px 0 6px; font-size: clamp(2rem, 4vw, 3.35rem); line-height: 1.04; letter-spacing: -.05em; }
+    .address { margin: 0 0 22px; color: var(--muted); }
+    .parking-box { padding: 22px; border-radius: 22px; background: #edf6f5; }
+    .parking-box h4 { margin: 0 0 5px; font-size: 1.1rem; }
+    .parking-box p { margin: 0; color: #3f5d67; }
+    .parking-fee { margin: 12px 0 0; font-size: 2.2rem; font-weight: 900; color: var(--ocean); letter-spacing: -.04em; }
+    .parking-proof { display: grid; grid-template-columns: 180px 1fr; gap: 18px; align-items: center; margin-top: 18px; }
+    .parking-proof img { width: 180px; height: 205px; object-fit: cover; object-position: center 47%; border-radius: 16px; border: 1px solid var(--line); }
+    .parking-proof p { margin: 0; color: var(--muted); font-size: .9rem; }
     .return-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
     .route-card { background: #fff; padding: 30px; border-radius: 24px; border: 1px solid var(--line); }
     .route-card h3 { margin: 0 0 20px; font-size: 1.5rem; }
@@ -132,7 +163,9 @@
     .toast.show { opacity: 1; transform: translateY(0); }
     @media (max-width: 820px) {
       .hero { min-height: 84vh; }
-      .section-head, .trip-card { grid-template-columns: 1fr; }
+      .section-head, .trip-card, .stay-card, .boarding-card { grid-template-columns: 1fr; }
+      .stay-visual { min-height: 380px; }
+      .boarding-photo { min-height: 420px; }
       .experience-grid { grid-template-columns: 1fr 1fr; }
       .day { grid-template-columns: 1fr; }
       .day-title { border-right: 0; border-bottom: 1px solid rgba(255,255,255,.13); }
@@ -148,6 +181,13 @@
       section { padding: 66px 0; }
       .experience-grid { grid-template-columns: 1fr; }
       .experience { min-height: 220px; }
+      .gallery { grid-template-columns: 1fr; }
+      .gallery figure { min-height: 230px; }
+      .stay-copy { padding: 27px; }
+      .boarding-copy { padding: 27px; }
+      .parking-proof { grid-template-columns: 120px 1fr; }
+      .parking-proof img { width: 120px; height: 170px; }
+      .stay-meta { grid-template-columns: 1fr; }
       .stop { grid-template-columns: 1fr; gap: 2px; }
       .trip-main, .trip-side { padding: 27px; }
       .price { font-size: 3rem; }
@@ -191,17 +231,53 @@
       </div>
     </section>
 
+    <section style="padding-top:0">
+      <div class="shell">
+        <div class="section-head">
+          <div><span class="kicker">The stay</span><h2>住进五彩渔镇，<br />窗外就是海</h2></div>
+          <p class="lede">第一晚已经确认入住象屿所至。这里不是单纯睡一晚的落脚点：新中式建筑、临海阳台、暖色公共空间和入夜后的渔镇灯光，会直接构成 Day 1 的旅行氛围。</p>
+        </div>
+        <div class="stay-card">
+          <div class="stay-visual">
+            <img src="assets/hotel-02.jpg" alt="象屿所至民宿夜间外观" loading="lazy" />
+            <span class="stay-badge">酒店已预订</span>
+          </div>
+          <div class="stay-copy">
+            <span class="kicker">X Home · Banbianshan</span>
+            <h3>象山象屿所至民宿</h3>
+            <p>位于东海半边山旅游度假区·五彩渔镇。携程公开页面显示民宿2023年开业，住客反馈重点集中在“离沙滩近”“有设计感”和“夜晚亮灯很美”。</p>
+            <div class="stay-meta">
+              <div><strong>入住</strong>9月22日 14:00后</div>
+              <div><strong>退房</strong>9月23日 12:00前</div>
+              <div><strong>位置</strong>五彩渔镇 A6号</div>
+              <div><strong>停车</strong>预计可停民宿，待确认</div>
+            </div>
+            <p style="margin:0;color:var(--muted)">真实感受大概是：白天看山海和沙滩，傍晚从阳台等天色变化，入夜后回到亮灯的渔镇慢慢散步。</p>
+          </div>
+        </div>
+        <div class="gallery" aria-label="象屿所至民宿照片">
+          <figure><img src="assets/hotel-16.jpg" alt="象屿所至民宿临海阳台与晚霞" loading="lazy" /><figcaption>临海阳台 · 晚霞</figcaption></figure>
+          <figure><img src="assets/hotel-15.jpg" alt="象屿所至民宿海景客房展示" loading="lazy" /><figcaption>海景客房示意</figcaption></figure>
+          <figure><img src="assets/hotel-13.jpg" alt="象屿所至民宿公共空间" loading="lazy" /><figcaption>公共空间</figcaption></figure>
+        </div>
+        <p class="source-note">酒店图片与信息来自<a href="https://m.ctrip.com/html5/hotel/hoteldetail/102317262.html" target="_blank" rel="noopener noreferrer">携程公开展示页</a>；不同房型的布局和景观可能不同，实际以本次订单房型及现场为准。</p>
+      </div>
+    </section>
+
     <section class="timeline-wrap" id="schedule">
       <div class="shell">
         <div class="section-head">
           <div><span class="kicker">Trip outline</span><h2>两天一晚，<br />轻松但不空</h2></div>
-          <p class="lede">以下是方便大家快速理解的行程框架。正式 Schedule 会在登船码头、住宿和集合车次全部补齐后再细化。</p>
+          <p class="lede">这版已经把住宿、集合时间、登船码头和返程车次串在一起，方便大家先看懂整趟旅行；后续只需再提炼成更精确的群内 Schedule。</p>
         </div>
         <div class="days">
           <article class="day">
             <div class="day-title"><strong>D1</strong><span>9月22日</span></div>
             <div class="stops">
-              <div class="stop"><div class="time">中午前后</div><div><h3>宁波站汇合</h3><p>南京组乘高铁抵达；上海组自驾到宁波接人。</p></div></div>
+              <img class="day-cover" src="assets/hotel-17.jpg" alt="五彩渔镇与半边山海湾的日落景观" loading="lazy" />
+              <p class="day-cover-note">我们第一晚所在的五彩渔镇与半边山海湾｜携程酒店展示图</p>
+              <div class="stop"><div class="time">09:50</div><div><h3>南京组出发</h3><p>从南京乘高铁前往宁波，预计12:15抵达宁波站；具体车次与检票口以票面和铁路通知为准。</p></div></div>
+              <div class="stop"><div class="time">12:15</div><div><h3>宁波站汇合</h3><p>南京组抵达宁波站；上海组自驾到站接人，汇合后一起前往象山。</p></div></div>
               <div class="stop"><div class="time">14:00后</div><div><h3>入住象屿所至民宿 <span class="confirmed">已预订</span></h3><p>酒店位于半边山旅游度假区；办理入住、放行李后再出发吃晚饭。</p></div></div>
               <div class="stop"><div class="time">傍晚之前</div><div><h3>提前吃石浦海鲜晚餐</h3><p>入住后先去吃饭，以当天新鲜海货为主，把体力补回来，不饿着肚子等日落。</p></div></div>
               <div class="stop"><div class="time">饭后傍晚</div><div><h3>沙滩、拍照与日落</h3><p>回到半边山或五彩渔镇附近散步、拍照、吹海风，天气合适就留在海边等日落。</p></div></div>
@@ -211,14 +287,47 @@
           <article class="day">
             <div class="day-title"><strong>D2</strong><span>9月23日</span></div>
             <div class="stops">
-              <div class="stop"><div class="time">12:00前</div><div><h3>早餐 · 退房 · 前往码头</h3><p>从象屿所至民宿退房，不塞额外景点，留足时间收拾和抵达登船点。</p></div></div>
+              <img class="day-cover" src="assets/shipu-sea-trip-hero.png" alt="朋友乘船出海海钓与拖网的氛围画面" loading="lazy" />
+              <p class="day-cover-note">海上体验氛围示意图｜原创生成，不代表实际船只</p>
+              <div class="stop"><div class="time">约09:30</div><div><h3>早餐 · 提前退房</h3><p>酒店最晚12:00退房，但为了11:00准时出海，需要更早收拾行李、退房并开车前往码头。</p></div></div>
+              <div class="stop"><div class="time">10:30左右</div><div><h3>抵达东门渡口</h3><p>停车后前往青年与海驿站·东门渡口，抵达码头即致电船老大联系接船。</p></div></div>
               <div class="stop"><div class="time">11:00</div><div><h3>包船出海 <span class="confirmed">已预订</span></h3><p>正式开始海钓与拖网体验。</p></div></div>
               <div class="stop"><div class="time">15:30左右</div><div><h3>返港上岸</h3><p>实际返港时间受海况和作业节奏影响，按船长安排为准。</p></div></div>
-              <div class="stop"><div class="time">16:00—18:15</div><div><h3>鲜捞海货现场加工</h3><p>把当天适合食用的渔获交给岸边餐馆加工，不足的菜现场补点。</p></div></div>
+              <div class="stop"><div class="time">16:00—18:15</div><div><h3>鲜捞海货现场加工</h3><p>返港后直接去码头旁的海鲜大排档，现场挑一家加工渔获；工作日预计不需提前订位。</p></div></div>
               <div class="stop"><div class="time">18:20左右</div><div><h3>出发前往宁波站</h3><p>建议最晚不要晚于18:30离开石浦，给进站预留缓冲。</p></div></div>
-              <div class="stop"><div class="time">20:50</div><div><h3>宁波 → 南京南 <span class="confirmed">已出票</span></h3><p>南京组从宁波站乘高铁返程；上海组送站后继续自驾回上海。</p></div></div>
+              <div class="stop"><div class="time">20:50</div><div><h3>宁波 → 南京南 <span class="confirmed">已出票</span></h3><p>南京组从宁波站乘高铁返程，预计23:30左右抵达南京南；上海组送站后继续自驾回上海。</p></div></div>
             </div>
           </article>
+        </div>
+      </div>
+    </section>
+
+    <section style="padding-bottom:0">
+      <div class="shell">
+        <div class="section-head">
+          <div><span class="kicker">Meet-up point</span><h2>码头已明确，<br />开车可以直达</h2></div>
+          <p class="lede">船家发来的微信笔记已经把登船点和附近停车位置标清楚。当天导航到登船码头，普通小客车停满4小时以上按20元/车次准备即可。</p>
+        </div>
+        <div class="boarding-card">
+          <div class="boarding-photo">
+            <img src="assets/boarding-note.jpg" alt="青年与海驿站东门渡口登船点实景与微信笔记" loading="lazy" />
+          </div>
+          <div class="boarding-copy">
+            <span class="kicker">Boarding confirmed</span>
+            <h3>青年与海驿站<br />东门渡口</h3>
+            <p class="address">浙江省宁波市象山县渔港南路</p>
+            <div class="included" style="margin:0 0 18px"><span class="tag">抵达后致电船老大</span><span class="tag">189 **** 0729</span><span class="tag">完整号码见微信群</span></div>
+            <div class="parking-box">
+              <h4>附近停车场</h4>
+              <p>定位参考：象山县山海海鲜干货超市南100米，渔港南路。</p>
+              <div class="parking-fee">¥20 <small style="font-size:.9rem;letter-spacing:0;color:var(--muted)">/ 普通车 · 超过4小时</small></div>
+              <p style="margin-top:7px;font-size:.86rem">30分钟内免费；30分钟—4小时为10元/车次；超过4小时为20元/车次。按本次约4.5小时海上行程，建议直接按20元预算。</p>
+            </div>
+            <div class="parking-proof">
+              <img src="assets/parking-note.jpg" alt="东门渡口附近停车场收费标准截图" loading="lazy" />
+              <p>收费标准来自船家提供的现场照片。若当天临时改码头或停车规则调整，以船家最新通知和现场公示为准。</p>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -235,14 +344,15 @@
             <p>9月23日 11:00—15:30左右 · 约4.5小时</p>
             <div class="price">¥2,300 <small>/ 整船</small></div>
             <p>按5人计算约 <strong>¥460/人</strong>。</p>
-            <div class="included"><span class="tag">整船包船</span><span class="tag">海钓</span><span class="tag">拖网一次</span><span class="tag">渔获上岸加工</span></div>
+            <div class="included"><span class="tag">整船包船</span><span class="tag">海钓</span><span class="tag">拖网一次</span><span class="tag">钓具渔具</span><span class="tag">保险</span><span class="tag">冰鲜打包</span></div>
           </div>
           <aside class="trip-side">
             <h4>关于当天的渔获</h4>
             <ul>
               <li>海钓和拖网都受天气、海况及鱼情影响，不承诺固定数量。</li>
               <li>渔获是体验的惊喜，不把一整顿饭完全押在“必定丰收”上。</li>
-              <li>能吃的优先送餐馆加工；太少就加点菜，太多则冰鲜打包或请船方协助处理。</li>
+              <li>能吃的优先送大排档加工；太少就加点菜，太多可以使用套餐包含的冰鲜打包服务。</li>
+              <li>钓具、渔具、保险和冰鲜打包均已包含，大家无需自行准备专业装备。</li>
             </ul>
           </aside>
         </div>
@@ -261,7 +371,7 @@
             <h3>南京方向</h3>
             <div class="route-line"><strong>18:20</strong><span>从石浦出发前往宁波站</span></div>
             <div class="route-line"><strong>约20:00</strong><span>抵达、取行李、进站安检</span></div>
-            <div class="route-line"><strong>20:50</strong><span>宁波站 → 南京南站（以票面信息为准）</span></div>
+            <div class="route-line"><strong>20:50</strong><span>宁波站出发，预计23:30左右抵达南京南</span></div>
           </article>
           <article class="route-card">
             <div class="status">自驾返程</div>
@@ -284,11 +394,10 @@
           <article class="check-card attention">
             <h3>还需补齐</h3>
             <ul>
-              <li>象屿所至民宿的停车点与景区接驳方式，出发前向民宿再确认一次。</li>
-              <li>南京组抵达宁波的车次，以及第一天准确集合时间。</li>
-              <li>船家联系人、登船码头定位、要求提前到达的时间。</li>
-              <li>返港后负责加工渔获的餐馆，是否接受来料加工及收费方式。</li>
-              <li>船费2300元具体包含的钓具、鱼饵、保险与其他费用。</li>
+              <li>象屿所至民宿是否可以直接停车，出发前向店家确认一次。</li>
+              <li>当天建议10:30左右到码头；若船老大另行通知，以最新约定为准。</li>
+              <li>出发前24小时再次确认天气、海况以及是否正常开船。</li>
+              <li>上海组驾驶安排、车辆座位和大家行李空间。</li>
             </ul>
           </article>
           <article class="check-card">
@@ -298,7 +407,7 @@
               <li>防晒霜、帽子、墨镜；海上紫外线和反光都比较强。</li>
               <li>防滑且不怕湿的鞋、替换袜子、薄外套。</li>
               <li>防水手机袋、充电宝、少量饮用水。</li>
-              <li>需要带走渔获时准备冰袋或泡沫保温箱。</li>
+              <li>船方已含冰鲜打包；如希望分装，可自备写名字的密封袋。</li>
             </ul>
           </article>
         </div>
@@ -308,7 +417,7 @@
   </main>
 
   <footer>
-    <div class="shell"><strong>象山石浦 · 2026.09.22—09.23</strong><span>版本：行程概览 · 正式 Schedule 待补齐集合与码头信息</span></div>
+    <div class="shell"><strong>象山石浦 · 2026.09.22—09.23</strong><span>版本：行程概览 · 登船点与返程已确认</span></div>
   </footer>
   <div class="toast" id="toast" role="status" aria-live="polite">链接已复制</div>
   <script>
