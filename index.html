@@ -1,0 +1,334 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#08354c" />
+  <meta name="description" content="9月22日至23日，象山石浦两天一晚：海边、包船海钓、拖网捕鱼与鲜捞海货上岸加工。" />
+  <title>象山石浦 · 两天一晚</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2308354c'/%3E%3Cpath d='M8 39c7-6 14-6 21 0s14 6 27-2v11c-12 8-20 8-28 2S15 44 8 49z' fill='%235cd0d2'/%3E%3Cpath d='M17 31h29l-5 9H22z' fill='%23ffb24a'/%3E%3Cpath d='M31 14v17m0-12h10l-10-5z' stroke='%23fff' stroke-width='3' stroke-linecap='round' stroke-linejoin='round' fill='none'/%3E%3C/svg%3E" />
+  <style>
+    :root {
+      --ink: #0a2534;
+      --muted: #5c707a;
+      --paper: #f5f8f7;
+      --white: #ffffff;
+      --navy: #08354c;
+      --ocean: #0b6680;
+      --aqua: #5cd0d2;
+      --sun: #ffb24a;
+      --line: rgba(10, 37, 52, .12);
+      --shadow: 0 20px 70px rgba(3, 38, 52, .14);
+      --radius: 26px;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+      font-size: 16px;
+      line-height: 1.65;
+    }
+    a { color: inherit; }
+    .shell { width: min(1120px, calc(100% - 40px)); margin: 0 auto; }
+    .hero {
+      min-height: 92vh;
+      position: relative;
+      display: grid;
+      align-items: end;
+      overflow: hidden;
+      color: #fff;
+      background: #073246 url("assets/shipu-sea-trip-hero.png") center 44% / cover no-repeat;
+    }
+    .hero::before {
+      content: "";
+      position: absolute; inset: 0;
+      background: linear-gradient(180deg, rgba(4,28,41,.06) 12%, rgba(4,28,41,.34) 55%, rgba(4,28,41,.92) 100%);
+    }
+    .topbar {
+      position: absolute; z-index: 3; top: 0; left: 0; right: 0;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 24px max(24px, calc((100vw - 1120px) / 2));
+      font-weight: 700; letter-spacing: .04em;
+    }
+    .brand { display: flex; align-items: center; gap: 10px; }
+    .brand-mark { width: 12px; height: 12px; border-radius: 50%; background: var(--sun); box-shadow: 18px 0 0 var(--aqua); margin-right: 18px; }
+    .share-btn {
+      appearance: none; border: 1px solid rgba(255,255,255,.48); background: rgba(5,37,52,.25); color: #fff;
+      padding: 10px 15px; border-radius: 999px; font: inherit; font-weight: 700; cursor: pointer; backdrop-filter: blur(12px);
+    }
+    .share-btn:hover { background: rgba(255,255,255,.16); }
+    .hero-content { position: relative; z-index: 2; padding: 130px 0 58px; }
+    .eyebrow { margin: 0 0 14px; text-transform: uppercase; letter-spacing: .16em; font-size: .82rem; font-weight: 800; color: #9de9e5; }
+    h1 { margin: 0; max-width: 820px; font-size: clamp(3.3rem, 9vw, 7.4rem); line-height: .93; letter-spacing: -.065em; }
+    .hero-note { margin: 24px 0 34px; max-width: 680px; font-size: clamp(1.05rem, 2vw, 1.3rem); color: rgba(255,255,255,.88); }
+    .facts { display: flex; flex-wrap: wrap; gap: 10px; }
+    .pill { display: inline-flex; align-items: center; gap: 8px; min-height: 40px; padding: 8px 14px; border: 1px solid rgba(255,255,255,.22); border-radius: 999px; background: rgba(3,27,39,.4); backdrop-filter: blur(12px); font-weight: 700; }
+    .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--sun); }
+    main { overflow: hidden; }
+    section { padding: 92px 0; }
+    .section-head { display: grid; grid-template-columns: 1fr 1.6fr; gap: 40px; align-items: end; margin-bottom: 40px; }
+    .kicker { color: var(--ocean); font-weight: 850; letter-spacing: .12em; text-transform: uppercase; font-size: .8rem; }
+    h2 { margin: 8px 0 0; font-size: clamp(2.1rem, 5vw, 4rem); line-height: 1.06; letter-spacing: -.045em; }
+    .lede { margin: 0; color: var(--muted); font-size: 1.08rem; max-width: 650px; }
+    .experience-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+    .experience {
+      min-height: 270px; padding: 26px; border-radius: var(--radius); color: #fff; position: relative; overflow: hidden;
+      display: flex; flex-direction: column; justify-content: space-between; box-shadow: var(--shadow);
+    }
+    .experience:nth-child(1) { background: #07384e; }
+    .experience:nth-child(2) { background: #0d6e84; }
+    .experience:nth-child(3) { background: #128d93; }
+    .experience:nth-child(4) { background: #e88b2d; }
+    .num { font-size: 4.6rem; line-height: 1; opacity: .18; font-weight: 900; letter-spacing: -.08em; }
+    .experience h3 { margin: 20px 0 8px; font-size: 1.45rem; }
+    .experience p { margin: 0; color: rgba(255,255,255,.82); }
+    .timeline-wrap { background: var(--navy); color: #fff; }
+    .timeline-wrap .kicker { color: #7de0dd; }
+    .timeline-wrap .lede { color: rgba(255,255,255,.68); }
+    .days { display: grid; gap: 18px; }
+    .day { display: grid; grid-template-columns: 150px 1fr; border: 1px solid rgba(255,255,255,.13); border-radius: 28px; overflow: hidden; background: rgba(255,255,255,.045); }
+    .day-title { padding: 28px; border-right: 1px solid rgba(255,255,255,.13); }
+    .day-title strong { display: block; font-size: 2.6rem; letter-spacing: -.06em; }
+    .day-title span { color: #7de0dd; font-weight: 700; }
+    .stops { padding: 22px 28px; }
+    .stop { display: grid; grid-template-columns: 112px 1fr; gap: 18px; padding: 14px 0; border-bottom: 1px solid rgba(255,255,255,.1); }
+    .stop:last-child { border-bottom: 0; }
+    .time { color: #ffc06a; font-weight: 800; }
+    .stop h3 { margin: 0 0 3px; font-size: 1.05rem; }
+    .stop p { margin: 0; color: rgba(255,255,255,.64); }
+    .confirmed { display: inline-block; margin-left: 8px; padding: 2px 8px; border-radius: 999px; background: rgba(92,208,210,.16); color: #93ece8; font-size: .74rem; vertical-align: 2px; }
+    .trip-card { display: grid; grid-template-columns: 1.1fr .9fr; overflow: hidden; background: #fff; border-radius: 30px; box-shadow: var(--shadow); }
+    .trip-main { padding: 42px; }
+    .trip-main h3 { margin: 0 0 8px; font-size: 2.1rem; letter-spacing: -.04em; }
+    .price { margin: 22px 0 8px; font-size: 3.7rem; font-weight: 900; letter-spacing: -.06em; color: var(--ocean); }
+    .price small { font-size: 1rem; letter-spacing: 0; color: var(--muted); font-weight: 650; }
+    .included { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 24px; }
+    .tag { background: #e8f5f4; color: #0a6470; border-radius: 999px; padding: 7px 11px; font-weight: 750; font-size: .88rem; }
+    .trip-side { padding: 42px; background: #e9f5f5; }
+    .trip-side h4 { margin: 0 0 14px; font-size: 1.1rem; }
+    .trip-side ul { margin: 0; padding-left: 20px; color: #3f5d67; }
+    .trip-side li + li { margin-top: 9px; }
+    .return-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .route-card { background: #fff; padding: 30px; border-radius: 24px; border: 1px solid var(--line); }
+    .route-card h3 { margin: 0 0 20px; font-size: 1.5rem; }
+    .route-line { display: grid; grid-template-columns: 74px 1fr; gap: 16px; padding: 14px 0; border-top: 1px solid var(--line); }
+    .route-line strong { color: var(--ocean); }
+    .status { display: inline-flex; align-items: center; gap: 7px; color: #287766; font-weight: 800; font-size: .9rem; }
+    .status::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: #32ad83; }
+    .checklist { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .check-card { padding: 30px; border-radius: 24px; background: #fff; border: 1px solid var(--line); }
+    .check-card h3 { margin: 0 0 16px; font-size: 1.25rem; }
+    .check-card ul { margin: 0; padding-left: 20px; color: var(--muted); }
+    .check-card li + li { margin-top: 8px; }
+    .attention { background: #fff0dc; border-color: #f0c786; }
+    .fineprint { margin-top: 18px; color: var(--muted); font-size: .9rem; }
+    footer { background: #061f2c; color: rgba(255,255,255,.72); padding: 36px 0; }
+    footer .shell { display: flex; justify-content: space-between; gap: 20px; align-items: center; }
+    footer strong { color: #fff; }
+    .toast { position: fixed; right: 20px; bottom: 20px; z-index: 8; background: #fff; color: var(--ink); box-shadow: var(--shadow); padding: 12px 16px; border-radius: 14px; opacity: 0; transform: translateY(10px); pointer-events: none; transition: .2s ease; }
+    .toast.show { opacity: 1; transform: translateY(0); }
+    @media (max-width: 820px) {
+      .hero { min-height: 84vh; }
+      .section-head, .trip-card { grid-template-columns: 1fr; }
+      .experience-grid { grid-template-columns: 1fr 1fr; }
+      .day { grid-template-columns: 1fr; }
+      .day-title { border-right: 0; border-bottom: 1px solid rgba(255,255,255,.13); }
+      .day-title strong { display: inline; margin-right: 10px; }
+      .return-grid, .checklist { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 560px) {
+      .shell { width: min(100% - 26px, 1120px); }
+      .topbar { padding: 18px 14px; }
+      .brand { font-size: .9rem; }
+      .hero-content { padding-bottom: 36px; }
+      h1 { font-size: clamp(3rem, 17vw, 5.1rem); }
+      section { padding: 66px 0; }
+      .experience-grid { grid-template-columns: 1fr; }
+      .experience { min-height: 220px; }
+      .stop { grid-template-columns: 1fr; gap: 2px; }
+      .trip-main, .trip-side { padding: 27px; }
+      .price { font-size: 3rem; }
+      footer .shell { align-items: flex-start; flex-direction: column; }
+    }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { transition: none !important; } }
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <div class="topbar">
+      <div class="brand"><span class="brand-mark"></span>象山石浦 · 好友出海计划</div>
+      <button class="share-btn" id="shareBtn" type="button">复制分享链接</button>
+    </div>
+    <div class="shell hero-content">
+      <p class="eyebrow">Sep 22—23 · 2 Days / 1 Night</p>
+      <h1>去海边，<br />开一网秋天。</h1>
+      <p class="hero-note">一次不赶景点的象山短途旅行：住进海边，包一条船，认真钓鱼，再把刚捞上来的海货交给岸边餐馆。</p>
+      <div class="facts">
+        <span class="pill"><span class="dot"></span>预计 5 人</span>
+        <span class="pill">两天一晚</span>
+        <span class="pill">上海自驾 × 南京高铁</span>
+        <span class="pill">海上项目已预订</span>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section>
+      <div class="shell">
+        <div class="section-head">
+          <div><span class="kicker">The experience</span><h2>这趟旅行，<br />就玩明白四件事</h2></div>
+          <p class="lede">比起密集打卡，我们把时间留给真正有记忆点的体验。海钓负责参与感，拖网负责惊喜，岸上加工负责把当天的海变成一顿饭。</p>
+        </div>
+        <div class="experience-grid">
+          <article class="experience"><span class="num">01</span><div><h3>整船包下</h3><p>朋友独享行程，不与陌生游客拼船，节奏更自在。</p></div></article>
+          <article class="experience"><span class="num">02</span><div><h3>真正海钓</h3><p>每个人都可以下竿体验，中鱼看运气，快乐靠互相调侃。</p></div></article>
+          <article class="experience"><span class="num">03</span><div><h3>拖网开盲盒</h3><p>下网、等待、起网，看这一网会出现鱼、虾还是梭子蟹。</p></div></article>
+          <article class="experience"><span class="num">04</span><div><h3>鲜捞鲜做</h3><p>返港后把适合食用的渔获送到岸边餐馆，现场加工成晚饭。</p></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="timeline-wrap" id="schedule">
+      <div class="shell">
+        <div class="section-head">
+          <div><span class="kicker">Trip outline</span><h2>两天一晚，<br />轻松但不空</h2></div>
+          <p class="lede">以下是方便大家快速理解的行程框架。正式 Schedule 会在登船码头、住宿和集合车次全部补齐后再细化。</p>
+        </div>
+        <div class="days">
+          <article class="day">
+            <div class="day-title"><strong>D1</strong><span>9月22日</span></div>
+            <div class="stops">
+              <div class="stop"><div class="time">中午前后</div><div><h3>宁波站汇合</h3><p>南京组乘高铁抵达；上海组自驾到宁波接人。</p></div></div>
+              <div class="stop"><div class="time">下午</div><div><h3>前往象山 · 入住海边</h3><p>抵达半边山一带，办理入住、放行李，不安排赶场。</p></div></div>
+              <div class="stop"><div class="time">傍晚</div><div><h3>沙滩与五彩渔镇</h3><p>散步、拍照、吹海风；天气合适就留在海边等日落。</p></div></div>
+              <div class="stop"><div class="time">晚上</div><div><h3>石浦海鲜晚餐</h3><p>以当天新鲜海货为主；有精力再去渔港或古城外围散步。</p></div></div>
+            </div>
+          </article>
+          <article class="day">
+            <div class="day-title"><strong>D2</strong><span>9月23日</span></div>
+            <div class="stops">
+              <div class="stop"><div class="time">上午</div><div><h3>早餐 · 退房 · 前往码头</h3><p>不塞额外景点，留足时间吃早餐、收拾和抵达登船点。</p></div></div>
+              <div class="stop"><div class="time">11:00</div><div><h3>包船出海 <span class="confirmed">已预订</span></h3><p>正式开始海钓与拖网体验。</p></div></div>
+              <div class="stop"><div class="time">15:30左右</div><div><h3>返港上岸</h3><p>实际返港时间受海况和作业节奏影响，按船长安排为准。</p></div></div>
+              <div class="stop"><div class="time">16:00—18:15</div><div><h3>鲜捞海货现场加工</h3><p>把当天适合食用的渔获交给岸边餐馆加工，不足的菜现场补点。</p></div></div>
+              <div class="stop"><div class="time">18:20左右</div><div><h3>出发前往宁波站</h3><p>建议最晚不要晚于18:30离开石浦，给进站预留缓冲。</p></div></div>
+              <div class="stop"><div class="time">20:50</div><div><h3>宁波 → 南京南 <span class="confirmed">已出票</span></h3><p>南京组从宁波站乘高铁返程；上海组送站后继续自驾回上海。</p></div></div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="shell">
+        <div class="section-head">
+          <div><span class="kicker">Booked highlight</span><h2>海上项目<br />已经锁定</h2></div>
+          <p class="lede">这是整趟旅行唯一需要严格守时的项目，也是最重要的共同体验。</p>
+        </div>
+        <div class="trip-card">
+          <div class="trip-main">
+            <h3>石浦包船 · 海钓＋拖网</h3>
+            <p>9月23日 11:00—15:30左右 · 约4.5小时</p>
+            <div class="price">¥2,300 <small>/ 整船</small></div>
+            <p>按5人计算约 <strong>¥460/人</strong>。</p>
+            <div class="included"><span class="tag">整船包船</span><span class="tag">海钓</span><span class="tag">拖网一次</span><span class="tag">渔获上岸加工</span></div>
+          </div>
+          <aside class="trip-side">
+            <h4>关于当天的渔获</h4>
+            <ul>
+              <li>海钓和拖网都受天气、海况及鱼情影响，不承诺固定数量。</li>
+              <li>渔获是体验的惊喜，不把一整顿饭完全押在“必定丰收”上。</li>
+              <li>能吃的优先送餐馆加工；太少就加点菜，太多则冰鲜打包或请船方协助处理。</li>
+            </ul>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section style="padding-top:0">
+      <div class="shell">
+        <div class="section-head">
+          <div><span class="kicker">Return plan</span><h2>两路返程，<br />宁波站分开</h2></div>
+          <p class="lede">第二天晚饭不适合无限延长。20:50的高铁已经出票，推荐18:20左右离开石浦，正常路况下仍有进站余量。</p>
+        </div>
+        <div class="return-grid">
+          <article class="route-card">
+            <div class="status">车票已购买</div>
+            <h3>南京方向</h3>
+            <div class="route-line"><strong>18:20</strong><span>从石浦出发前往宁波站</span></div>
+            <div class="route-line"><strong>约20:00</strong><span>抵达、取行李、进站安检</span></div>
+            <div class="route-line"><strong>20:50</strong><span>宁波站 → 南京南站（以票面信息为准）</span></div>
+          </article>
+          <article class="route-card">
+            <div class="status">自驾返程</div>
+            <h3>上海方向</h3>
+            <div class="route-line"><strong>送站后</strong><span>宁波站短暂停留，确认南京组进站</span></div>
+            <div class="route-line"><strong>当晚</strong><span>从宁波继续自驾返回上海</span></div>
+            <div class="route-line"><strong>提醒</strong><span>驾驶员避免饮酒，必要时轮换驾驶</span></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section style="background:#e9f1f0">
+      <div class="shell">
+        <div class="section-head">
+          <div><span class="kicker">Before we go</span><h2>现在还差的，<br />都是小确认</h2></div>
+          <p class="lede">主行程已经成立。下面这些不会改变旅行方向，但最好在出发前统一发到群里，避免临场找地址、找餐馆或漏带装备。</p>
+        </div>
+        <div class="checklist">
+          <article class="check-card attention">
+            <h3>还需补齐</h3>
+            <ul>
+              <li>第一晚民宿的准确名称、地址、停车与接驳方式。</li>
+              <li>南京组抵达宁波的车次，以及第一天准确集合时间。</li>
+              <li>船家联系人、登船码头定位、要求提前到达的时间。</li>
+              <li>返港后负责加工渔获的餐馆，是否接受来料加工及收费方式。</li>
+              <li>船费2300元具体包含的钓具、鱼饵、保险与其他费用。</li>
+            </ul>
+          </article>
+          <article class="check-card">
+            <h3>建议随身带</h3>
+            <ul>
+              <li>晕船药：按说明提前服用，不要等上船后再吃。</li>
+              <li>防晒霜、帽子、墨镜；海上紫外线和反光都比较强。</li>
+              <li>防滑且不怕湿的鞋、替换袜子、薄外套。</li>
+              <li>防水手机袋、充电宝、少量饮用水。</li>
+              <li>需要带走渔获时准备冰袋或泡沫保温箱。</li>
+            </ul>
+          </article>
+        </div>
+        <p class="fineprint">天气与海况最终以船长和当地海事要求为准。若当天不适合出海，安全优先，按已约定的取消或改期规则处理。</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="shell"><strong>象山石浦 · 2026.09.22—09.23</strong><span>版本：行程概览 · 正式 Schedule 待补齐集合与码头信息</span></div>
+  </footer>
+  <div class="toast" id="toast" role="status" aria-live="polite">链接已复制</div>
+  <script>
+    const button = document.getElementById('shareBtn');
+    const toast = document.getElementById('toast');
+    button.addEventListener('click', async () => {
+      try {
+        if (navigator.share) {
+          await navigator.share({ title: document.title, text: '象山石浦两天一晚行程', url: location.href });
+          return;
+        }
+        await navigator.clipboard.writeText(location.href);
+        toast.classList.add('show');
+        setTimeout(() => toast.classList.remove('show'), 1800);
+      } catch (error) {
+        if (error && error.name === 'AbortError') return;
+        toast.textContent = '请复制浏览器地址分享';
+        toast.classList.add('show');
+        setTimeout(() => toast.classList.remove('show'), 2200);
+      }
+    });
+  </script>
+</body>
+</html>
