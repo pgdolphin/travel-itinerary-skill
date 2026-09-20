@@ -157,6 +157,14 @@
     .trip-main h3 { margin: 0 0 8px; font-size: 2.1rem; letter-spacing: -.04em; }
     .price { margin: 22px 0 8px; font-size: 3.7rem; font-weight: 900; letter-spacing: -.06em; color: var(--ocean); }
     .price small { font-size: 1rem; letter-spacing: 0; color: var(--muted); font-weight: 650; }
+    .cost-list { display: grid; gap: 10px; margin-top: 24px; }
+    .cost-item { display: grid; grid-template-columns: 105px 1fr; gap: 16px; align-items: start; padding: 16px 0; border-top: 1px solid var(--line); }
+    .cost-item > span { color: var(--muted); font-weight: 750; }
+    .cost-item strong { display: block; color: var(--ocean); font-size: 1.08rem; }
+    .cost-item small { display: block; margin-top: 3px; color: var(--muted); font-size: .82rem; line-height: 1.5; }
+    .cost-proof { display: grid; grid-template-columns: 90px 1fr; gap: 12px; align-items: center; margin-top: 20px; padding: 12px; border-radius: 16px; background: rgba(255,255,255,.56); }
+    .cost-proof img { width: 90px; height: 105px; object-fit: cover; object-position: center 48%; border-radius: 11px; }
+    .cost-proof p { margin: 0; color: #49636c; font-size: .82rem; }
     .included { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 24px; }
     .tag { background: #e8f5f4; color: #0a6470; border-radius: 999px; padding: 7px 11px; font-weight: 750; font-size: .88rem; }
     .trip-side { padding: 42px; background: #e9f5f5; }
@@ -380,14 +388,8 @@
             <p class="address">浙江省宁波市象山县渔港南路</p>
             <div class="included" style="margin:0 0 18px"><span class="tag">抵达后致电船老大</span><span class="tag">189 **** 0729</span><span class="tag">完整号码见微信群</span></div>
             <div class="parking-box">
-              <h4>附近停车场</h4>
-              <p>定位参考：象山县山海海鲜干货超市南100米，渔港南路。</p>
-              <div class="parking-fee">¥20 <small style="font-size:.9rem;letter-spacing:0;color:var(--muted)">/ 普通车 · 超过4小时</small></div>
-              <p style="margin-top:7px;font-size:.86rem">30分钟内免费；30分钟—4小时为10元/车次；超过4小时为20元/车次。按本次约4.5小时海上行程，建议直接按20元预算。</p>
-            </div>
-            <div class="parking-proof">
-              <img src="assets/parking-note.jpg" alt="东门渡口附近停车场收费标准截图" loading="lazy" />
-              <p>收费标准来自船家提供的现场照片。若当天临时改码头或停车规则调整，以船家最新通知和现场公示为准。</p>
+              <h4>停车定位</h4>
+              <p>象山县山海海鲜干货超市南100米，渔港南路。停车费用已经统一归入下方“费用与保障”。</p>
             </div>
           </div>
         </div>
@@ -402,9 +404,13 @@
         </div>
         <div class="trip-card">
           <div class="trip-main">
-            <h3>包船预订明细</h3>
+            <h3>确定支出与现场支出</h3>
             <div class="price">¥2,300 <small>/ 整船</small></div>
             <p>按5人计算约 <strong>¥460/人</strong>。</p>
+            <div class="cost-list">
+              <div class="cost-item"><span>码头停车</span><div><strong>预计 ¥20 / 普通车</strong><small>30分钟内免费；30分钟—4小时10元；超过4小时20元。本次海上行程约4.5小时，按20元准备。</small></div></div>
+              <div class="cost-item"><span>渔获加工</span><div><strong>现场结算</strong><small>返港后由码头旁大排档按实际菜品和加工方式收费，当前没有固定价格。</small></div></div>
+            </div>
             <div class="included"><span class="tag">整船包船</span><span class="tag">海钓</span><span class="tag">拖网一次</span><span class="tag">钓具渔具</span><span class="tag">保险</span><span class="tag">冰鲜打包</span></div>
           </div>
           <aside class="trip-side">
@@ -415,6 +421,10 @@
               <li>能吃的优先送大排档加工；太少就加点菜，太多可以使用套餐包含的冰鲜打包服务。</li>
               <li>钓具、渔具、保险和冰鲜打包均已包含，大家无需自行准备专业装备。</li>
             </ul>
+            <div class="cost-proof">
+              <img src="assets/parking-note.jpg" alt="东门渡口附近停车场收费标准截图" loading="lazy" />
+              <p>停车价格来自船家提供的现场公示照片；若当天码头或规则调整，以最新通知和现场公示为准。</p>
+            </div>
           </aside>
         </div>
       </div>
