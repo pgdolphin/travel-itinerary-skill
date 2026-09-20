@@ -126,6 +126,11 @@
     .story-arrows { display: flex; gap: 8px; }
     .round-btn { width: 44px; height: 44px; border: 1px solid var(--line); border-radius: 50%; background: #fff; color: var(--ink); font: inherit; font-size: 1.2rem; cursor: pointer; box-shadow: 0 8px 24px rgba(3,38,52,.08); }
     .round-btn:hover { background: var(--navy); color: #fff; }
+    .story-pane[hidden] { display: none; }
+    .story-section .day-tabs { margin: 18px 0 14px; background: #e8f2f1; border-color: #d5e4e2; }
+    .story-section .day-tab { color: #52707a; }
+    .story-section .day-tab.active { background: var(--navy); color: #fff; }
+    .story-card--document img { object-position: center 22%; }
     .timeline-wrap { background: var(--navy); color: #fff; }
     .timeline-wrap .kicker { color: #7de0dd; }
     .timeline-wrap .lede { color: rgba(255,255,255,.68); }
@@ -252,30 +257,14 @@
   </header>
 
   <nav class="chapter-nav" aria-label="行程章节">
-    <a href="#preview">旅程预告</a>
     <a href="#stay">住在哪里</a>
     <a href="#schedule">两日行程</a>
-    <a href="#boat">出海体验</a>
-    <a href="#return">返程安排</a>
+    <a href="#boat">费用与保障</a>
+    <a href="#checklist">出发准备</a>
   </nav>
 
   <main>
-    <section id="preview">
-      <div class="shell">
-        <div class="section-head">
-          <div><span class="kicker">The experience</span><h2>这趟旅行，<br />就玩明白四件事</h2></div>
-          <p class="lede">比起密集打卡，我们把时间留给真正有记忆点的体验。海钓负责参与感，拖网负责惊喜，岸上加工负责把当天的海变成一顿饭。</p>
-        </div>
-        <div class="experience-grid">
-          <article class="experience"><span class="num">01</span><div><h3>整船包下</h3><p>朋友独享行程，不与陌生游客拼船，节奏更自在。</p></div></article>
-          <article class="experience"><span class="num">02</span><div><h3>真正海钓</h3><p>每个人都可以下竿体验，中鱼看运气，快乐靠互相调侃。</p></div></article>
-          <article class="experience"><span class="num">03</span><div><h3>拖网开盲盒</h3><p>下网、等待、起网，看这一网会出现鱼、虾还是梭子蟹。</p></div></article>
-          <article class="experience"><span class="num">04</span><div><h3>鲜捞鲜做</h3><p>返港后把适合食用的渔获送到岸边餐馆，现场加工成晚饭。</p></div></article>
-        </div>
-      </div>
-    </section>
-
-    <section id="stay" style="padding-top:0">
+    <section id="stay">
       <div class="shell">
         <div class="section-head">
           <div><span class="kicker">The stay</span><h2>住进五彩渔镇，<br />窗外就是海</h2></div>
@@ -308,12 +297,16 @@
       </div>
     </section>
 
-    <section class="story-section" aria-labelledby="day1-story-title">
+    <section class="story-section" id="schedule" aria-labelledby="journey-story-title">
       <div class="shell story-shell">
         <div class="section-head">
-          <div><span class="kicker">Day 1 preview</span><h2 id="day1-story-title">第一天，<br />你会这样经历</h2></div>
+          <div><span class="kicker">Two-day journey</span><h2 id="journey-story-title">两天一晚，<br />你会这样经历</h2></div>
           <div>
-            <p class="lede">这不是另一份时间表，而是一段可以提前“走一遍”的旅行预告。向右滑动，看看从抵达到入夜，画面会怎样慢慢变化。</p>
+            <p class="lede">不再另外重复一份文字时间表。所有关键时间和体验都放进这条故事线里，切换日期、向右滑动，就能提前走完两天旅程。</p>
+            <div class="day-tabs" role="tablist" aria-label="选择查看哪一天">
+              <button class="day-tab active" type="button" role="tab" aria-selected="true" data-story-target="storyDay1">Day 1 · 海边入夜</button>
+              <button class="day-tab" type="button" role="tab" aria-selected="false" data-story-target="storyDay2">Day 2 · 出海收网</button>
+            </div>
             <div class="story-controls">
               <span class="story-hint">横向滑动 · 一幕一幕看</span>
               <div class="story-arrows"><button class="round-btn" id="storyPrev" type="button" aria-label="上一幕">←</button><button class="round-btn" id="storyNext" type="button" aria-label="下一幕">→</button></div>
@@ -321,63 +314,51 @@
           </div>
         </div>
       </div>
-      <div class="story-track" id="storyTrack" tabindex="0" aria-label="第一天旅行场景">
-        <article class="story-card">
-          <img src="assets/hotel-17.jpg" alt="五彩渔镇与半边山海湾的傍晚全景" loading="lazy" />
-          <div class="story-copy"><span class="story-index">SCENE 01 · 抵达</span><h3>先看见海，再住进渔镇</h3><p>从宁波一路开到象山，下午抵达半边山。放下行李的那一刻，旅行才真正从“赶路”切换成“在海边”。</p><p class="story-source">五彩渔镇与半边山海湾实景｜携程酒店展示图</p></div>
-        </article>
-        <article class="story-card">
-          <img src="assets/hotel-13.jpg" alt="象屿所至民宿温暖的公共空间" loading="lazy" />
-          <div class="story-copy"><span class="story-index">SCENE 02 · 安顿</span><h3>入住、放空，然后先去吃海鲜</h3><p>大家在公共空间碰头、稍作休息。因为中午来不及好好吃饭，傍晚前先解决一顿热腾腾的海鲜，再把最好的光线留给海边。</p><p class="story-source">象屿所至民宿公共空间实景｜携程酒店展示图</p></div>
-        </article>
-        <article class="story-card">
-          <img src="assets/hotel-16.jpg" alt="象屿所至民宿临海阳台与晚霞" loading="lazy" />
-          <div class="story-copy"><span class="story-index">SCENE 03 · 日落</span><h3>饭后走向沙滩，等天色变慢</h3><p>散步、拍照、吹风，不需要安排任务。真正想留下来的，是海面从亮到暗、朋友们慢慢松弛下来的那段时间。</p><p class="story-source">半边山临海晚霞实景｜携程酒店展示图</p></div>
-        </article>
-        <article class="story-card">
-          <img src="assets/shipu-night-walk-v1.jpg" alt="五位朋友夜间漫步石浦式渔港老街的氛围示意画面" loading="lazy" decoding="async" />
-          <div class="story-copy"><span class="story-index">SCENE 04 · 入夜</span><h3>灯亮以后，再去看渔港和老街</h3><p>回到亮灯的渔镇，随后开车去石浦渔港与古城一带。夜里不赶打卡，只是在码头和老街之间散步，看渔船、灯火和生活气。</p><p class="story-source">夜游体验氛围示意图｜原创生成，不代表具体街道、船只与当晚灯光</p></div>
-        </article>
-      </div>
-    </section>
-
-    <section class="timeline-wrap" id="schedule">
-      <div class="shell">
-        <div class="section-head">
-          <div><span class="kicker">Trip outline</span><h2>两天一晚，<br />轻松但不空</h2></div>
-          <p class="lede">这版已经把住宿、集合时间、登船码头和返程车次串在一起，方便大家先看懂整趟旅行；后续只需再提炼成更精确的群内 Schedule。</p>
-        </div>
-        <div class="day-tabs" role="tablist" aria-label="选择查看哪一天">
-          <button class="day-tab active" type="button" role="tab" aria-selected="true" data-day-target="day1">Day 1 · 海边入夜</button>
-          <button class="day-tab" type="button" role="tab" aria-selected="false" data-day-target="day2">Day 2 · 出海收网</button>
-        </div>
-        <div class="days">
-          <article class="day" id="day1" data-day-pane>
-            <div class="day-title"><strong>D1</strong><span>9月22日</span></div>
-            <div class="stops">
-              <img class="day-cover" src="assets/hotel-17.jpg" alt="五彩渔镇与半边山海湾的日落景观" loading="lazy" />
-              <p class="day-cover-note">我们第一晚所在的五彩渔镇与半边山海湾｜携程酒店展示图</p>
-              <div class="stop"><div class="time">09:50</div><div><h3>南京组出发</h3><p>从南京乘高铁前往宁波，预计12:15抵达宁波站；具体车次与检票口以票面和铁路通知为准。</p></div></div>
-              <div class="stop"><div class="time">12:15</div><div><h3>宁波站汇合</h3><p>南京组抵达宁波站；上海组自驾到站接人，汇合后一起前往象山。</p></div></div>
-              <div class="stop"><div class="time">14:00后</div><div><h3>入住象屿所至民宿 <span class="confirmed">已预订</span></h3><p>酒店位于半边山旅游度假区；办理入住、放行李后再出发吃晚饭。</p></div></div>
-              <div class="stop"><div class="time">傍晚之前</div><div><h3>提前吃石浦海鲜晚餐</h3><p>入住后先去吃饭，以当天新鲜海货为主，把体力补回来，不饿着肚子等日落。</p></div></div>
-              <div class="stop"><div class="time">饭后傍晚</div><div><h3>沙滩、拍照与日落</h3><p>回到半边山或五彩渔镇附近散步、拍照、吹海风，天气合适就留在海边等日落。</p></div></div>
-              <div class="stop"><div class="time">入夜后</div><div><h3>夜色里的渔港与古城</h3><p>开车前往石浦渔港和古城一带慢慢散步，看亮灯后的码头与老街；结束后回民宿休息。</p></div></div>
-            </div>
+      <div class="story-pane" id="storyDay1" data-story-pane>
+        <div class="story-track" tabindex="0" aria-label="第一天旅行场景">
+          <article class="story-card">
+            <img src="assets/hotel-17.jpg" alt="五彩渔镇与半边山海湾的傍晚全景" loading="lazy" />
+            <div class="story-copy"><span class="story-index">09:50—14:00 · 会合</span><h3>从两座城市出发，在宁波站碰头</h3><p>南京组09:50乘高铁出发，预计12:15抵达宁波站；上海组自驾接人。朋友到齐后一起驶向象山，下午抵达半边山。</p><p class="story-source">五彩渔镇与半边山海湾实景｜携程酒店展示图</p></div>
           </article>
-          <article class="day" id="day2" data-day-pane hidden>
-            <div class="day-title"><strong>D2</strong><span>9月23日</span></div>
-            <div class="stops">
-              <img class="day-cover" src="assets/shipu-sea-trip-hero.jpg" alt="朋友乘船出海海钓与拖网的氛围画面" loading="lazy" decoding="async" />
-              <p class="day-cover-note">海上体验氛围示意图｜原创生成，不代表实际船只</p>
-              <div class="stop"><div class="time">约09:30</div><div><h3>早餐 · 提前退房</h3><p>酒店最晚12:00退房，但为了11:00准时出海，需要更早收拾行李、退房并开车前往码头。</p></div></div>
-              <div class="stop"><div class="time">10:30左右</div><div><h3>抵达东门渡口</h3><p>停车后前往青年与海驿站·东门渡口，抵达码头即致电船老大联系接船。</p></div></div>
-              <div class="stop"><div class="time">11:00</div><div><h3>包船出海 <span class="confirmed">已预订</span></h3><p>正式开始海钓与拖网体验。</p></div></div>
-              <div class="stop"><div class="time">15:30左右</div><div><h3>返港上岸</h3><p>实际返港时间受海况和作业节奏影响，按船长安排为准。</p></div></div>
-              <div class="stop"><div class="time">16:00—18:15</div><div><h3>鲜捞海货现场加工</h3><p>返港后直接去码头旁的海鲜大排档，现场挑一家加工渔获；工作日预计不需提前订位。</p></div></div>
-              <div class="stop"><div class="time">18:20左右</div><div><h3>出发前往宁波站</h3><p>建议最晚不要晚于18:30离开石浦，给进站预留缓冲。</p></div></div>
-              <div class="stop"><div class="time">20:50</div><div><h3>宁波 → 南京南 <span class="confirmed">已出票</span></h3><p>南京组从宁波站乘高铁返程，预计23:30左右抵达南京南；上海组送站后继续自驾回上海。</p></div></div>
-            </div>
+          <article class="story-card">
+            <img src="assets/hotel-13.jpg" alt="象屿所至民宿温暖的公共空间" loading="lazy" />
+            <div class="story-copy"><span class="story-index">14:00后 · 入住</span><h3>放下行李，旅行切换到海边模式</h3><p>入住已经预订的象屿所至民宿，在公共空间碰头、稍作休息。窗外的海、暖色灯光和五彩渔镇，会成为第一晚的背景。</p><p class="story-source">象屿所至民宿公共空间实景｜携程酒店展示图</p></div>
+          </article>
+          <article class="story-card">
+            <img src="assets/hotel-02.jpg" alt="象屿所至民宿夜间外观" loading="lazy" />
+            <div class="story-copy"><span class="story-index">傍晚之前 · 晚餐</span><h3>先把海鲜吃上，再把好光线留给海边</h3><p>因为中午来不及好好吃饭，入住后先去吃一顿热腾腾的石浦海鲜。吃饱以后再去散步，不饿着肚子等日落。</p><p class="story-source">象屿所至民宿夜间外观实景｜携程酒店展示图</p></div>
+          </article>
+          <article class="story-card">
+            <img src="assets/hotel-16.jpg" alt="象屿所至民宿临海阳台与晚霞" loading="lazy" />
+            <div class="story-copy"><span class="story-index">饭后傍晚 · 日落</span><h3>走向沙滩，等天色慢慢变暗</h3><p>回到半边山或五彩渔镇附近散步、拍照、吹风。没有打卡任务，只把时间留给海面从亮到暗的过程。</p><p class="story-source">半边山临海晚霞实景｜携程酒店展示图</p></div>
+          </article>
+          <article class="story-card">
+            <img src="assets/shipu-night-walk-v1.jpg" alt="五位朋友夜间漫步石浦式渔港老街的氛围示意画面" loading="lazy" decoding="async" />
+            <div class="story-copy"><span class="story-index">入夜后 · 夜游</span><h3>灯亮以后，再去看渔港和老街</h3><p>开车前往石浦渔港和古城一带慢慢散步，在码头与老街之间看渔船、灯火和生活气；走累了就回民宿休息。</p><p class="story-source">夜游体验氛围示意图｜原创生成，不代表具体街道、船只与当晚灯光</p></div>
+          </article>
+        </div>
+      </div>
+      <div class="story-pane" id="storyDay2" data-story-pane hidden>
+        <div class="story-track" tabindex="0" aria-label="第二天旅行场景">
+          <article class="story-card">
+            <img src="assets/hotel-15.jpg" alt="象屿所至民宿海景客房展示" loading="lazy" />
+            <div class="story-copy"><span class="story-index">约09:30 · 退房</span><h3>醒在海边，收好行李准备出海</h3><p>吃完早餐后提前退房。虽然酒店最晚12:00退房，但为了11:00准时登船，需要更早收拾好行李并开车前往码头。</p><p class="story-source">象屿所至民宿海景客房展示｜携程酒店展示图</p></div>
+          </article>
+          <article class="story-card story-card--document">
+            <img src="assets/boarding-note.jpg" alt="青年与海驿站东门渡口登船点实景" loading="lazy" />
+            <div class="story-copy"><span class="story-index">10:30左右 · 集合</span><h3>抵达码头，联系船老大接船</h3><p>按照群内集合信息前往上船点。停好车、联系船老大，大家就从陆地上的旅行正式切换到海上。</p><p class="story-source">登船点实景｜船家提供的微信笔记</p></div>
+          </article>
+          <article class="story-card">
+            <img src="assets/shipu-sea-trip-hero.jpg" alt="朋友包船出海海钓与拖网的氛围画面" loading="lazy" decoding="async" />
+            <div class="story-copy"><span class="story-index">11:00—15:30 · 出海</span><h3>一条船，五个人，认真钓一次鱼</h3><p>船开出港以后轮流下竿，等一次真正的中鱼时刻。鱼情不能保证，但每个人都能参与，海上的几个小时就是这趟旅行的主场。</p><p class="story-source">海上体验氛围示意图｜原创生成，不代表实际船只与当天海况</p></div>
+          </article>
+          <article class="story-card">
+            <img src="assets/shipu-sea-trip-hero.jpg" alt="朋友在船上收网查看渔获的氛围画面" loading="lazy" decoding="async" style="object-position:72% center" />
+            <div class="story-copy"><span class="story-index">海上后半程 · 收网</span><h3>一起拉起这一网，看大海给了什么</h3><p>拖网负责整趟旅程最有悬念的瞬间：等网离开水面，围过去看这一趟遇到了鱼、虾、蟹，还是一份意料之外的惊喜。</p><p class="story-source">海钓与拖网氛围示意图｜原创生成，不代表实际渔获数量</p></div>
+          </article>
+          <article class="story-card">
+            <img src="assets/shipu-night-walk-v1.jpg" alt="傍晚返港后前往大排档与返程的氛围示意画面" loading="lazy" decoding="async" />
+            <div class="story-copy"><span class="story-index">15:30—23:30 · 鲜做与返程</span><h3>把刚捞上来的海，变成离开前的一顿饭</h3><p>返港后到码头旁大排档加工渔获，计划18:20左右离开石浦。南京组20:50从宁波站出发，预计23:30左右到南京南；上海组送站后继续自驾返程。</p><p class="story-source">实际返港时间受海况影响；返程以铁路通知和当日路况为准</p></div>
           </article>
         </div>
       </div>
@@ -416,13 +397,12 @@
     <section id="boat">
       <div class="shell">
         <div class="section-head">
-          <div><span class="kicker">Booked highlight</span><h2>海上项目<br />已经锁定</h2></div>
-          <p class="lede">这是整趟旅行唯一需要严格守时的项目，也是最重要的共同体验。</p>
+          <div><span class="kicker">Booking details</span><h2>船费里面，<br />已经包含什么</h2></div>
+          <p class="lede">这里不再复述行程，只集中放预算、装备、保险和渔获处理这些出发前真正需要确认的信息。</p>
         </div>
         <div class="trip-card">
           <div class="trip-main">
-            <h3>石浦包船 · 海钓＋拖网</h3>
-            <p>9月23日 11:00—15:30左右 · 约4.5小时</p>
+            <h3>包船预订明细</h3>
             <div class="price">¥2,300 <small>/ 整船</small></div>
             <p>按5人计算约 <strong>¥460/人</strong>。</p>
             <div class="included"><span class="tag">整船包船</span><span class="tag">海钓</span><span class="tag">拖网一次</span><span class="tag">钓具渔具</span><span class="tag">保险</span><span class="tag">冰鲜打包</span></div>
@@ -440,31 +420,6 @@
       </div>
     </section>
 
-    <section id="return" style="padding-top:0">
-      <div class="shell">
-        <div class="section-head">
-          <div><span class="kicker">Return plan</span><h2>两路返程，<br />宁波站分开</h2></div>
-          <p class="lede">第二天晚饭不适合无限延长。20:50的高铁已经出票，推荐18:20左右离开石浦，正常路况下仍有进站余量。</p>
-        </div>
-        <div class="return-grid">
-          <article class="route-card">
-            <div class="status">车票已购买</div>
-            <h3>南京方向</h3>
-            <div class="route-line"><strong>18:20</strong><span>从石浦出发前往宁波站</span></div>
-            <div class="route-line"><strong>约20:00</strong><span>抵达、取行李、进站安检</span></div>
-            <div class="route-line"><strong>20:50</strong><span>宁波站出发，预计23:30左右抵达南京南</span></div>
-          </article>
-          <article class="route-card">
-            <div class="status">自驾返程</div>
-            <h3>上海方向</h3>
-            <div class="route-line"><strong>送站后</strong><span>宁波站短暂停留，确认南京组进站</span></div>
-            <div class="route-line"><strong>当晚</strong><span>从宁波继续自驾返回上海</span></div>
-            <div class="route-line"><strong>提醒</strong><span>驾驶员避免饮酒，必要时轮换驾驶</span></div>
-          </article>
-        </div>
-      </div>
-    </section>
-
     <section id="checklist" style="background:#e9f1f0">
       <div class="shell">
         <div class="section-head">
@@ -476,7 +431,6 @@
             <h3>还需补齐</h3>
             <ul>
               <li>象屿所至民宿是否可以直接停车，出发前向店家确认一次。</li>
-              <li>当天建议10:30左右到码头；若船老大另行通知，以最新约定为准。</li>
               <li>出发前24小时再次确认天气、海况以及是否正常开船。</li>
               <li>上海组驾驶安排、车辆座位和大家行李空间。</li>
             </ul>
@@ -488,7 +442,7 @@
               <li>防晒霜、帽子、墨镜；海上紫外线和反光都比较强。</li>
               <li>防滑且不怕湿的鞋、替换袜子、薄外套。</li>
               <li>防水手机袋、充电宝、少量饮用水。</li>
-              <li>船方已含冰鲜打包；如希望分装，可自备写名字的密封袋。</li>
+              <li>如希望把带回的渔获分装，可自备写名字的密封袋。</li>
             </ul>
           </article>
         </div>
@@ -530,24 +484,25 @@
     updateProgress();
     window.addEventListener('scroll', updateProgress, { passive: true });
 
-    const storyTrack = document.getElementById('storyTrack');
     const storyStep = () => Math.min(760, window.innerWidth - 52) + 18;
-    document.getElementById('storyPrev').addEventListener('click', () => storyTrack.scrollBy({ left: -storyStep(), behavior: 'smooth' }));
-    document.getElementById('storyNext').addEventListener('click', () => storyTrack.scrollBy({ left: storyStep(), behavior: 'smooth' }));
+    const activeStoryTrack = () => document.querySelector('[data-story-pane]:not([hidden]) .story-track');
+    document.getElementById('storyPrev').addEventListener('click', () => activeStoryTrack()?.scrollBy({ left: -storyStep(), behavior: 'smooth' }));
+    document.getElementById('storyNext').addEventListener('click', () => activeStoryTrack()?.scrollBy({ left: storyStep(), behavior: 'smooth' }));
 
-    const dayTabs = [...document.querySelectorAll('.day-tab')];
-    const dayPanes = [...document.querySelectorAll('[data-day-pane]')];
-    dayTabs.forEach(tab => tab.addEventListener('click', () => {
-      dayTabs.forEach(item => {
+    const storyTabs = [...document.querySelectorAll('[data-story-target]')];
+    const storyPanes = [...document.querySelectorAll('[data-story-pane]')];
+    storyTabs.forEach(tab => tab.addEventListener('click', () => {
+      storyTabs.forEach(item => {
         const selected = item === tab;
         item.classList.toggle('active', selected);
         item.setAttribute('aria-selected', selected ? 'true' : 'false');
       });
-      dayPanes.forEach(pane => { pane.hidden = pane.id !== tab.dataset.dayTarget; });
+      storyPanes.forEach(pane => { pane.hidden = pane.id !== tab.dataset.storyTarget; });
+      requestAnimationFrame(() => activeStoryTrack()?.scrollTo({ left: 0, behavior: 'instant' }));
     }));
 
     const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    const revealTargets = [...document.querySelectorAll('main > section .section-head, .stay-card, .gallery, .story-card, .day, .boarding-card, .trip-card, .route-card, .check-card')];
+    const revealTargets = [...document.querySelectorAll('main > section .section-head, .stay-card, .gallery, .story-card, .boarding-card, .trip-card, .route-card, .check-card')];
     if (!reducedMotion && 'IntersectionObserver' in window) {
       revealTargets.forEach(item => item.classList.add('reveal'));
       const revealObserver = new IntersectionObserver(entries => {
